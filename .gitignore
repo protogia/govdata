@@ -171,4 +171,4 @@ lib64
 pyvenv.cfg
 
 #exampledata
-*data.json
+data/
