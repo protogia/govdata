@@ -3,7 +3,10 @@ Python-client-library to fetch data from opendata-sources via DKAN-REST-API.
 
 ## install 
 ```bash
-git clone 
+git clone
+cd opendata 
+python -m venv .
+source bin/activate
 python -m pip install .
 ```
 
