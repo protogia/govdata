@@ -1,18 +1,15 @@
-# opendata
-Python-client-library to fetch data from opendata-sources via DKAN-REST-API.
+# govdata
+Client-library to fetch data from GovData/OpenData-sources via DKAN-REST-API. 
+Take a look at [https://www.govdata.de/](https://www.govdata.de/) to determine if your city of interest provides some data.
 
 ## install 
 ```bash
-git clone
-cd opendata 
-python -m venv .
-source bin/activate
-python -m pip install .
+python -m pip install govdata
 ```
 
 ## usage
 ```py
-from interface import DKANPortalClient 
+from govdata.interface import DKANPortalClient 
 import requests
 # get opendata-city-client
 cityclient = DKANPortalClient(city="braunschweig", apiversion=3)
@@ -46,7 +43,6 @@ pytest --cov=interface tests
 ```
 ============================= test session starts ==============================
 platform linux -- Python 3.8.10, pytest-7.4.3, pluggy-1.3.0
-rootdir: /home/working/protogia/projects/opendata
 plugins: requests-mock-1.11.0, cov-4.1.0
 collected 8 items
 
