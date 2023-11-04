@@ -3,9 +3,9 @@ from setuptools import setup, find_packages
 setup(
     name="govdata",
     author="Giancarlo Rizzo",
-    version="0.0.1",
+    version="0.0.2",
     packages=find_packages(),
-    python_requires='>3.9',
+    python_requires='>3.8',
     install_requires=[
         'Jinja2==3.0.3',
         'pandas==1.5.3',
