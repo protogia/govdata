@@ -11,7 +11,7 @@ class DKANPortalClient:
 
     Methods:
         get_resource_metadata(resource_id: str) -> Dict: Get metadata for a specific resource.
-        get_package_metadata(package_id: str) -> Dict: Get metadata for a specific package.
+        get_package_metadata(package_name: str) -> Dict: Get metadata for a specific package.
         get_packages() -> List[Dict]: Get a list of all packages.
         get_contributors() -> List[str]: Get a list of contributors (groups).
         get_total_packages_with_resources() -> List[Dict]: Get a list of all packages with resources.
@@ -209,12 +209,12 @@ class DKANPortalClient:
             raise ValueError("Unable to parse response JSON or missing expected keys") from e
 
 
-    def get_package_metadata(self, package_id: str) -> Dict[str, Any]:
+    def get_package_metadata(self, package_name: str) -> Dict[str, Any]:
         """
         Get metadata for a specific package (dataset) by its ID.
 
         Args:
-            package_id (str): The ID of the package.
+            package_name (str): The ID of the package.
 
         Returns:
             dict: Metadata for the specified package in the form of a dictionary.
@@ -224,7 +224,7 @@ class DKANPortalClient:
             ValueError: If the response JSON cannot be parsed.
         """
         # Build the URL for the package show API endpoint
-        url = f"{self.base_url}/action/package_show?id={package_id}"
+        url = f"{self.base_url}/action/package_show?id={package_name}"
 
         try:
             # Send an HTTP GET request to the API endpoint
@@ -237,7 +237,7 @@ class DKANPortalClient:
                 packages = response.json().get("result")
                 if type(packages) == list:
                     if len(packages) > 0:
-                        return packages
+                        return packages[0]
 
         except requests.exceptions.RequestException as e:
             # Handle any exceptions that might occur during the request
