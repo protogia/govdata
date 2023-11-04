@@ -234,8 +234,10 @@ class DKANPortalClient:
             # Parse the JSON response and return the result
             if response.json()["success"]:
                 # Extract the list of packages from the response
-                packages = response.json().get("result")[0]
-                return packages
+                packages = response.json().get("result")
+                if type(packages) == list:
+                    if len(packages) > 0:
+                        return packages
 
         except requests.exceptions.RequestException as e:
             # Handle any exceptions that might occur during the request
