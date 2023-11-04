@@ -9,7 +9,7 @@ python -m pip install govdata
 
 ## usage
 ```py
-from govdata.interface import DKANPortalClient 
+from govdata import DKANPortalClient 
 import requests
 # get opendata-city-client
 cityclient = DKANPortalClient(city="braunschweig", apiversion=3)
@@ -36,7 +36,7 @@ if response.ok:
 
 ## run tests
 ```bash
-pytest --cov=interface tests
+pytest --cov=govdata tests
 ```
 
 ## testcoverage
@@ -46,7 +46,7 @@ platform linux -- Python 3.8.10, pytest-7.4.3, pluggy-1.3.0
 plugins: requests-mock-1.11.0, cov-4.1.0, anyio-3.7.1
 collected 8 items                                                                                                                                                                     
 
-tests/test_interface.py ........                                                                                                                                                [100%]
+tests/test_govdata.py ........                                                                                                                                                [100%]
 
 ---------- coverage: platform ?, python 3.11.6-final-0 -----------
 Name           Stmts   Miss  Cover

@@ -1,4 +1,4 @@
-from interface import DKANPortalClient 
+from govdata import DKANPortalClient 
 import requests
 # get opendata-city-client
 cityclient = DKANPortalClient(city="braunschweig", apiversion=3)
