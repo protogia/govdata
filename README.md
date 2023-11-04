@@ -41,14 +41,14 @@ pytest --cov=interface tests
 
 ## testcoverage
 ```
-============================= test session starts ==============================
+================================================================================= test session starts =================================================================================
 platform linux -- Python 3.8.10, pytest-7.4.3, pluggy-1.3.0
-plugins: requests-mock-1.11.0, cov-4.1.0
-collected 8 items
+plugins: requests-mock-1.11.0, cov-4.1.0, anyio-3.7.1
+collected 8 items                                                                                                                                                                     
 
-tests/test_interface.py ........                                         [100%]
+tests/test_interface.py ........                                                                                                                                                [100%]
 
----------- coverage: platform linux, python 3.8.10-final-0 -----------
+---------- coverage: platform ?, python 3.11.6-final-0 -----------
 Name           Stmts   Miss  Cover
 ----------------------------------
 interface.py      93     45    52%
@@ -56,6 +56,6 @@ interface.py      93     45    52%
 TOTAL             93     45    52%
 
 
-============================== 8 passed in 0.16s ===============================
+================================================================================== 8 passed in 0.10s ==================================================================================
 ```
 
