@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name="govdata",
     author="Giancarlo Rizzo",
-    version="0.0.7",
+    version="0.0.8",
     packages=["."],
     install_requires=[
         'Jinja2==3.0.3',
