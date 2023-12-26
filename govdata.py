@@ -99,7 +99,7 @@ class DKANPortalClient:
             # Handle JSON parsing errors or missing keys
             raise ValueError("Unable to parse response JSON or missing expected keys") from e
 
-    def get_tags(self) -> List[str]:
+    def get_unique_tags(self) -> List[str]:
         """
         Get a list of tags/short-descriptions available in the Dataset of your choince.
 

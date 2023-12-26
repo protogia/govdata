@@ -17,5 +17,5 @@ resource_id = resources_for_package[index_of_choosen_resource]["id"]
 resource_metadata = cityclient.get_resource_metadata(resource_id=resource_id)
 
 # get all tags of cityclient
-cityclient.get_tags()
+cityclient.get_unique_tags()
 
