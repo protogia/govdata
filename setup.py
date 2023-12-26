@@ -3,7 +3,9 @@ from setuptools import setup, find_packages
 setup(
     name="govdata",
     author="Giancarlo Rizzo",
-    version="0.0.8",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",  
+    version="0.0.9",
     packages=["."],
     install_requires=[
         'Jinja2==3.0.3',
