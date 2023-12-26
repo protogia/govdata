@@ -7,7 +7,7 @@ Take a look at [https://www.govdata.de/](https://www.govdata.de/) to determine i
 python -m pip install govdata
 ```
 
-## usage
+## example usage
 ```py
 from govdata import DKANPortalClient 
 import requests
@@ -21,17 +21,6 @@ packagelist = cityclient.get_packages()
 first_package_id_from_list = packagelist[0]
 package_meta = cityclient.get_package_metadata(package_id=first_package_id_from_list)
 resources_for_package = package_meta["resources"]
-
-# fetch informations from choosen resource by id
-index_of_choosen_resource = 1
-resource_id = resources_for_package[index_of_choosen_resource]["id"]
-resource = cityclient.get_resource_by_id(resource_id=resource_id)
-
-# now send get-request to resource-url to download file as <resourcename>.csv
-response = requests.get(resource["url"])
-if response.ok:
-    with open(f"{resource['name']}.csv", mode="wb") as file:
-        file.write(response.content)
 ```
 
 ## run tests
@@ -41,21 +30,14 @@ pytest --cov=govdata tests
 
 ## testcoverage
 ```
-================================================================================= test session starts =================================================================================
-platform linux -- Python 3.8.10, pytest-7.4.3, pluggy-1.3.0
-plugins: requests-mock-1.11.0, cov-4.1.0, anyio-3.7.1
-collected 8 items                                                                                                                                                                     
+collecting ... 
+ tests/test_govdata.py ✓✓✓✓✓✓✓✓                                                                                                                                          100% ██████████
 
-tests/test_govdata.py ........                                                                                                                                                [100%]
-
----------- coverage: platform ?, python 3.11.6-final-0 -----------
-Name           Stmts   Miss  Cover
-----------------------------------
-interface.py      93     45    52%
-----------------------------------
-TOTAL             93     45    52%
-
-
-================================================================================== 8 passed in 0.10s ==================================================================================
+---------- coverage: platform ###, python 3.8.10-final-0 -----------
+Name                                                          Stmts   Miss  Cover
+---------------------------------------------------------------------------------
+/###/.local/lib/python3.8/site-packages/govdata.py     106     56    47%
+---------------------------------------------------------------------------------
+TOTAL                                                           106     56    47%
 ```
 
