@@ -4,7 +4,8 @@ import unittest
 import requests
 from requests.exceptions import RequestException
 from requests_mock import Mocker
-from interface import DKANPortalClient  # Annahme: Du importierst deine DKANPortalClient-Klasse aus der entsprechenden Datei
+import govdata
+from govdata import DKANPortalClient
 
 city = "essen"
 
