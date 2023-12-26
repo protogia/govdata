@@ -1,5 +1,7 @@
 import pretty_errors
 import requests
+import pandas as pd
+
 from typing import Type, Dict, List, Any
 
 class DKANPortalClient:
@@ -97,7 +99,34 @@ class DKANPortalClient:
             # Handle JSON parsing errors or missing keys
             raise ValueError("Unable to parse response JSON or missing expected keys") from e
 
-    
+    def get_tags(self) -> List[str]:
+        """
+        Get a list of tags/short-descriptions available in the Dataset of your choince.
+
+        Returns:
+            list: A list of strings, each representing a tag.
+
+        Raises:
+            requests.exceptions.RequestException: If the HTTP request encounters an error.
+            ValueError: If the response JSON cannot be parsed or lacks expected keys.
+        """
+
+        packages_with_resources = self.get_total_packages_with_resources()                
+
+        # if packages available, create dataframe
+        if packages_with_resources:
+            df = pd.DataFrame(packages_with_resources)  
+
+            # create empty list for tags
+            taglist = []
+
+            # filter dataframe for unique tags
+            for entry in df.tags:
+                for tag in entry:
+                    if tag["name"] not in taglist:
+                        taglist.append(tag["name"])
+            return taglist
+        
     def get_contributors(self) -> List[str]:
         """
         Get a list of contributors (groups) available in the DKAN API.
